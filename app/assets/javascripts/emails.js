@@ -1,3 +1,3 @@
 $(document).ready(function () {
-  $('#test_textarea').wysihtml5();
+  $('#test_textarea').wysihtml5(); 
 });
