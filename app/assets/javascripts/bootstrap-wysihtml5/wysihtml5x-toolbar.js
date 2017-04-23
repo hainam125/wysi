@@ -5993,6 +5993,7 @@ wysihtml5.dom.parse = (function() {
      * We already parsed that element
      * ignore it! (yes, this sometimes happens in IE8 when the html is invalid)
      */
+     console.log(oldNode);
     if (oldNode._wysihtml5) {
       return null;
     }
@@ -6192,8 +6193,13 @@ wysihtml5.dom.parse = (function() {
 
     if (setAttributes) {
       attributes = wysihtml5.lang.object(setAttributes).clone();
+        if(oldNode.className == 'current-tab'){
+            attributes.target = '_self';
+            attributes.class = 'current-tab';
+        }
+        else
+            attributes.class = 'new-tab';
     }
-
     if (checkAttributes) {
       for (attributeName in checkAttributes) {
         method = attributeCheckMethods[checkAttributes[attributeName]];
@@ -10096,8 +10102,12 @@ wysihtml5.Commands = Base.extend(
         }
       }
     }
-
+    console.log('tst');
     elementToSetCaretAfter = anchor;
+
+    if(!$('.bootstrap-wysihtml5-insert-link-target').prop('checked')){
+        $(anchor).addClass('current-tab');
+    }
     if (length === 1) {
       textContent = dom.getTextContent(anchor);
       hasElementChild = !!anchor.querySelector("*");

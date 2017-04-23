@@ -14,5 +14,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require bootstrap-wysihtml5/wysihtml5x-toolbar
 //= require_tree .
 //= require_tree ./bootstrap-wysihtml5
